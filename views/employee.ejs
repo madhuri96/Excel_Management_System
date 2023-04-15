@@ -1,0 +1,38 @@
+<% include ./partials/header.ejs %>
+
+<div class="container">
+    <div class="row">
+        <h1 class="lead">Employee Data</h1>
+        <div id="table" class="table-responsive table-editable">
+            <table id="employee" class="table table-striped table-hover table-bordered">
+                <tr>
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>Email</th>
+                    <th>Location</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <% employees.forEach(function(employee){ %>
+                    <tr>
+                        
+                        <td contenteditable="true"><%= employee.name %></td>
+                        <td contenteditable="true"><%= employee.designation %></td>
+                        <td contenteditable="true"><%= employee.email %></td>
+                        <td contenteditable="true"><%= employee.location %></td>
+                        <td>
+                            <a href="/upload/employee/<%= employee._id %>/edit"><i class="glyphicon glyphicon-pencil"></i></a>
+                        </td>
+                        <td>
+                            <form action="/upload/employee/<%= employee._id %>?_method=DELETE" method="POST" style="display:inline;">
+                                <button class="btn btn-xs"><i class="glyphicon glyphicon-trash"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            </table>
+        </div>
+    </div>
+</div>
+
+<% include ./partials/footer.ejs %>

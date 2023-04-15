@@ -1,0 +1,14 @@
+.table-editable {
+  position: relative;
+}
+.glyphicon {
+    font-size: 20px;
+}
+.table-remove {
+  color: #700;
+  
+}
+.table-remove :hover {
+    color: #2980b9;
+}
+
